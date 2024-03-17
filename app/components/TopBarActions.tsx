@@ -22,6 +22,10 @@ export function TopBarActions({ changeClockStyle, isMuted = false }: any) {
       displayName: "Modern",
       value: "modern",
     },
+    {
+      displayName: "Digital",
+      value: "digital",
+    },
   ];
 
   const closeDropdown = () => {
@@ -55,7 +59,7 @@ export function TopBarActions({ changeClockStyle, isMuted = false }: any) {
               key={themeOption.value}
               className={cx(
                 "dropdown-item",
-                "min-w-[150px]",
+                "min-w-[150px] text-sm",
                 "hover:bg-[#ffffff20]",
                 "px-2 py-1 rounded",
                 "cursor-pointer",

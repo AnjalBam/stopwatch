@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 
-import { unna, iceberg } from "@/lib/fonts";
+import { unna, iceberg, digital } from "@/lib/fonts";
 import { NextFont } from "next/dist/compiled/@next/font";
 
 const CLOCK_LS_KEY = "timer-anjal-clock-style";
@@ -10,6 +10,7 @@ const CLOCK_LS_KEY = "timer-anjal-clock-style";
 const fontOptions: { [key: string]: NextFont } = {
   classic: unna,
   modern: iceberg,
+  digital: digital,
 };
 
 const useClockStyle = () => {
