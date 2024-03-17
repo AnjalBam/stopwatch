@@ -11,7 +11,7 @@ type ThemeOptionType = {
 };
 
 export function TopBarActions({ changeClockStyle, isMuted = false }: any) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const ThemeOptions: ThemeOptionType[] = [
     {
