@@ -6,6 +6,7 @@ import ShortcutActions from "./components/ShortcutActions";
 import { useCallback, useEffect } from "react";
 import useClockStyle from "@/hooks/useClockStyle";
 import { TopBarActions } from "./components/TopBarActions";
+import { Heart } from "lucide-react";
 
 export default function StopWatch() {
   const formatValue = (v: any) => {
@@ -74,6 +75,12 @@ export default function StopWatch() {
         {...timer.controls}
         toggleFullScreen={toggleFullScreen}
       />
+      <p className="absolute bottom-1 right-1 text-xs text-zinc-600">
+        with &#10084;{" "}
+        <a href="https://anjalbam.com.np" className="hover:underline">
+          Anjal Bam
+        </a>
+      </p>
     </section>
   );
 }
