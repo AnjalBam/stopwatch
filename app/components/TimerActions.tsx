@@ -41,7 +41,7 @@ export default function TimerActions({
 function TimerActionButton({ action, Icon, text = "" }: ActionButtonProps) {
   return (
     <button
-      className="p-2 transition-all backdrop-blur-sm bg-[#ffffff10] backdrop-filter backdrop-blur-xl hover:bg-[#ffffff20] rounded-lg shadow-lg"
+      className="p-2 transition-all bg-[#ffffff05] backdrop-filter backdrop-blur-xl hover:bg-[#ffffff10] rounded-lg shadow-lg"
       onClick={action}
       title={text}
     >
