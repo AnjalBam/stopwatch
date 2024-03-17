@@ -1,3 +1,4 @@
-import { Newsreader } from "next/font/google";
+import { Iceberg, Unna } from "next/font/google";
 
-export const newsreader = Newsreader({ subsets: ["latin"] });
+export const unna = Unna({ weight: "700", subsets: ["latin"] });
+export const iceberg = Iceberg({ weight: "400", subsets: ["latin"] });
