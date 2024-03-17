@@ -1,10 +1,11 @@
 "use client";
 
-import { unna } from "@/lib/fonts";
 import TimerActions from "./components/TimerActions";
 import { useTimer } from "@joseavilasg/react-compound-timer";
 import ShortcutActions from "./components/ShortcutActions";
 import { useCallback, useEffect } from "react";
+import useClockStyle from "@/hooks/useClockStyle";
+import { TopBarActions } from "./components/TopBarActions";
 
 export default function StopWatch() {
   const formatValue = (v: any) => {
@@ -16,6 +17,8 @@ export default function StopWatch() {
     timeToUpdate: 10,
     lastUnit: "h",
   });
+
+  const { font, changeClockStyle } = useClockStyle();
 
   const toggleFullScreen = useCallback(() => {
     if (!document.fullscreenElement) {
@@ -50,8 +53,12 @@ export default function StopWatch() {
   }, [timer.controls, toggleFullScreen]);
   return (
     <section className="w-scren h-screen bg-zinc-900 text-white">
+      <TopBarActions
+        isMuted={timer.controls.getTimerState() === "PLAYING"}
+        changeClockStyle={changeClockStyle}
+      />
       <div
-        className={`flex justify-center items-center h-full mx-auto ${unna.className}`}
+        className={`flex justify-center items-center h-full mx-auto ${font.className}`}
       >
         <div className="mt-[-100px]">
           <div>

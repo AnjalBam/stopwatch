@@ -1,11 +1,13 @@
 "use client";
 
+import { Button } from "@/ui/components/Button";
 import { PlayIcon, CirclePause, RotateCcw } from "lucide-react";
 
 type ActionButtonProps = {
   action: () => void;
   Icon: JSX.Element;
   text?: string;
+  isMuted?: boolean;
 };
 
 export default function TimerActions({
@@ -32,20 +34,29 @@ export default function TimerActions({
   return (
     <div className="flex gap-4 justify-center align-center w-full mt-4">
       {actionButtons.map((button, index) => (
-        <TimerActionButton key={index} {...button} />
+        <TimerActionButton
+          key={index}
+          {...button}
+          isMuted={getTimerState() === "PLAYING"}
+        />
       ))}
     </div>
   );
 }
 
-function TimerActionButton({ action, Icon, text = "" }: ActionButtonProps) {
+function TimerActionButton({
+  action,
+  Icon,
+  text = "",
+  isMuted = false,
+}: ActionButtonProps) {
   return (
-    <button
-      className="p-2 transition-all bg-[#ffffff05] backdrop-filter backdrop-blur-xl hover:bg-[#ffffff10] rounded-lg shadow-lg"
+    <Button
+      className={`p-2 transition-all bg-[#ffffff05] backdrop-filter backdrop-blur-xl hover:bg-[#ffffff10] rounded-lg shadow-lg ${isMuted ? "text-zinc-500" : ""} hover:text-white`}
       onClick={action}
       title={text}
     >
       {Icon}
-    </button>
+    </Button>
   );
 }
